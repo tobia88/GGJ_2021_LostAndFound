@@ -81,6 +81,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5245177566636442704}
+    - target: {fileID: 8851617884185079346, guid: 31686525753131d47ad196944112cd8e,
+        type: 3}
+      propertyPath: catchSpeedDamp
+      value: 0.218
+      objectReference: {fileID: 0}
     - target: {fileID: 8851617884185149356, guid: 31686525753131d47ad196944112cd8e,
         type: 3}
       propertyPath: distanceToTarget
@@ -90,6 +95,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851617884185149356, guid: 31686525753131d47ad196944112cd8e,
+        type: 3}
+      propertyPath: ignoreLayerMask.m_Bits
+      value: 3328
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851617884185149356, guid: 31686525753131d47ad196944112cd8e,
+        type: 3}
+      propertyPath: seeThroughLayerMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 8851617884195051894, guid: 31686525753131d47ad196944112cd8e,
         type: 3}
