@@ -1032,7 +1032,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 1930
+  m_ColorTemperature: 1550
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 2.0952e-41, z: 0, w: -1}
   m_UseBoundingSphereOverride: 0
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
   m_LightDimmer: 1
-  m_VolumetricDimmer: 1.36
+  m_VolumetricDimmer: 3
   m_LightUnit: 0
   m_FadeDistance: 10000
   m_AffectDiffuse: 1
@@ -1299,6 +1299,8 @@ MonoBehaviour:
     type: 3}
   footprintDecalRightPrefab: {fileID: 6040171022630306419, guid: 82b20fabdfbecfc4b935e3a1660f8efa,
     type: 3}
+  canCreateIdleFootprint: 0
+  idleFootprintDistThres: 0.1
 --- !u!1 &7592147116719024590
 GameObject:
   m_ObjectHideFlags: 0
