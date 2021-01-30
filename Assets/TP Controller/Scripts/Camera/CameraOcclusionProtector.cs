@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class CameraOcclusionProtector : MonoBehaviour
 {
@@ -39,6 +40,9 @@ public class CameraOcclusionProtector : MonoBehaviour
     [SerializeField]
     [Tooltip("What objects should the camera ignore when checked for clips and occlusions")]
     private LayerMask ignoreLayerMask = 0; // What objects should the camera ignore when checked for clips and occlusions
+
+    [SerializeField]
+    private LayerMask seeThroughLayerMask;
 
 #if UNITY_EDITOR
     [SerializeField]
@@ -99,7 +103,7 @@ public class CameraOcclusionProtector : MonoBehaviour
     /// <param name="cameraPosition"> The position of the camera</param>
     /// <param name="outDistanceToTarget"> if the camera is occluded, the new distance to target is saved in this variable</param>
     /// <returns></returns>
-    private bool IsCameraOccluded(Vector3 cameraPosition, ref float outDistanceToTarget)
+    private bool IsCameraOccluded(ref float outDistanceToTarget)
     {
         // Cast a sphere along a ray to see if the camera is occluded
         Ray ray = new Ray(this.pivot.transform.position, -this.transform.forward);
@@ -118,21 +122,76 @@ public class CameraOcclusionProtector : MonoBehaviour
         }
     }
 
+    private List<GameObject> seeThroughObjects = new List<GameObject>();
+    private Dictionary<GameObject, CameraOcclusionFadeOut> _seeThroughRenderes = new Dictionary<GameObject, CameraOcclusionFadeOut>();
+    
     private void UpdateCameraPosition()
     {
         Vector3 newCameraLocalPosition = this.transform.localPosition;
         newCameraLocalPosition.z = -this.distanceToTarget;
-        Vector3 newCameraPosition = this.pivot.TransformPoint(newCameraLocalPosition);
+        // Vector3 newCameraPosition = this.pivot.TransformPoint(newCameraLocalPosition);
         float newDistanceToTarget = this.distanceToTarget;
         
-        if (this.IsCameraOccluded(newCameraPosition, ref newDistanceToTarget))
+        if (this.IsCameraOccluded(ref newDistanceToTarget))
         {
             newCameraLocalPosition.z = -newDistanceToTarget;
-            newCameraPosition = this.pivot.TransformPoint(newCameraLocalPosition);
+            // newCameraPosition = this.pivot.TransformPoint(newCameraLocalPosition);
+        }
+        
+        Ray ray = new Ray(this.pivot.transform.position, -this.transform.forward);
+        float rayLength = this.distanceToTarget - this.camera.nearClipPlane;
+        RaycastHit[] hits = Physics.RaycastAll(ray, rayLength, seeThroughLayerMask);
+        var hitList = new List<GameObject>();
+
+        if (hits.Length > 0)
+        {
+            foreach (var hit in hits)
+            {
+                var obj = hit.transform.parent.gameObject;
+                
+                if( hitList.Contains(obj))
+                    continue;
+                
+                hitList.Add(obj);
+                if (!seeThroughObjects.Contains(obj))
+                {
+                    AddFadeoutObject(obj);
+                }
+            }
+
+        }
+        
+        // Check if seeing through object is not on new list
+        for (int i = seeThroughObjects.Count - 1; i >= 0; i--)
+        {
+            var obj = seeThroughObjects[i];
+            if (!hitList.Contains(obj))
+            {
+                RemoveFadeoutObject(obj);
+            }
         }
         
         this.transform.localPosition = Vector3.SmoothDamp(
             this.transform.localPosition, newCameraLocalPosition, ref this.cameraVelocity, this.occlusionMoveTime);
+    }
+
+    private void AddFadeoutObject(GameObject obj)
+    {
+        seeThroughObjects.Add(obj);
+
+        Debug.Log("Fadeout Obj: " + obj.name);
+
+        var fadeout = obj.GetComponent<CameraOcclusionFadeOut>();
+        fadeout.SetFadeout(true);
+        _seeThroughRenderes.Add(obj, fadeout);
+    }
+
+    private void RemoveFadeoutObject(GameObject obj)
+    {
+        _seeThroughRenderes[obj].SetFadeout(false);
+
+        seeThroughObjects.Remove(obj);
+        _seeThroughRenderes.Remove(obj);
     }
 
     private ClipPlaneCornerPoints GetNearClipPlaneCornerPoints(Vector3 cameraPosition)

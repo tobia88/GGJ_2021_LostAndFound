@@ -61,8 +61,6 @@ public class CharacterReplayer : MonoBehaviour
 
         var lerp = Mathf.InverseLerp(lastTimeStamp, currentTimeStamp, time);
         
-        Debug.Log("Player Lerp: " + lerp);
-        
         LerpBetweenSnaps(snapDatas[currentFrameIndex], snapDatas[currentFrameIndex + 1], time);
         
         var prevPos = transform.position;
