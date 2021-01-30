@@ -32,9 +32,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 8851617884523811534}
   movementSettings:
-    acceleration: 1
+    acceleration: 3
     decceleration: 10
-    jogSpeed: 3
+    jogSpeed: 4
   gravitySettings:
     gravityStrength: 27
     maxFallSpeed: 38
@@ -234,7 +234,7 @@ PrefabInstance:
     - target: {fileID: 2925548231252558144, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_VolumetricDimmer
-      value: 6.3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2925548231252558144, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
@@ -979,7 +979,7 @@ PrefabInstance:
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 401.14
+      value: 402.105
       objectReference: {fileID: 0}
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
@@ -989,7 +989,7 @@ PrefabInstance:
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 395.94
+      value: 394.915
       objectReference: {fileID: 0}
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
