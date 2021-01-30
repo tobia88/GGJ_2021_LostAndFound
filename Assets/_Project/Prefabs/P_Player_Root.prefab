@@ -81,6 +81,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1989384939662510661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7825324368823152455}
+  m_Layer: 9
+  m_Name: Footprint_Root_R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7825324368823152455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989384939662510661}
+  m_LocalRotation: {x: 0.000000006519256, y: 5.820764e-11, z: -0.0000000036993684,
+    w: 1}
+  m_LocalPosition: {x: -0.02589999, y: -0.11999997, z: -0.06639999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8048866943272623565}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2283032215820915779
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +222,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0000000023828761, y: -0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7540840977380768560}
   m_Father: {fileID: 807673767317231377}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -643,6 +675,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &5522761076756758572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7540840977380768560}
+  m_Layer: 9
+  m_Name: Footprint_Root_L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7540840977380768560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5522761076756758572}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.11999996, z: -0.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7735049668593470738}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5844401314984881841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,6 +1238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7408451585984137647}
   - component: {fileID: 7408451585993826871}
+  - component: {fileID: 6299760739875659221}
   m_Layer: 9
   m_Name: P_Player_Root
   m_TagString: Player
@@ -1217,6 +1280,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6299760739875659221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7408451585984321733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e792fbc45e191b4458a12a04ab05f3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stampTransLeft: {fileID: 7540840977380768560}
+  stampTransRight: {fileID: 7825324368823152455}
+  footprintDecalLeftPrefab: {fileID: 9207297457004709466, guid: 101156cd40df37a46b42e2af3674146c,
+    type: 3}
+  footprintDecalRightPrefab: {fileID: 6040171022630306419, guid: 82b20fabdfbecfc4b935e3a1660f8efa,
+    type: 3}
 --- !u!1 &7592147116719024590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1326,8 @@ Transform:
   m_LocalRotation: {x: -0.013781004, y: -0.00019625101, z: 0.014237736, w: 0.9998037}
   m_LocalPosition: {x: 0, y: -0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7825324368823152455}
   m_Father: {fileID: 6774370162377859924}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -1.5790001, y: -0.045, z: 1.6320001}
