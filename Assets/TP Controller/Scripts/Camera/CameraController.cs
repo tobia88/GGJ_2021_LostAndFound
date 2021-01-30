@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
@@ -32,8 +33,18 @@ public class CameraController : MonoBehaviour
     {
         this.pivot = this.transform.parent;
         this.rig = this.pivot.parent;
+        this.rig.SetParent(null);
+        
 
         this.transform.localRotation = Quaternion.identity;
+    }
+
+    private void Start()
+    {
+        var character = GetComponentInParent<Character>();
+        
+        if (character != null)
+            target = character.transform;
     }
 
     protected virtual void Update()

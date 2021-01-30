@@ -2,33 +2,30 @@
 
 public class Character : MonoBehaviour
 {
-    // Serialized fields
-    [SerializeField]
-    private new Camera camera = null;
+    [SerializeField] private Camera _camera;
 
-    [SerializeField]
-    private MovementSettings movementSettings = null;
+    [SerializeField] private MovementSettings movementSettings = null;
 
-    [SerializeField]
-    private GravitySettings gravitySettings = null;
+    [SerializeField] private GravitySettings gravitySettings = null;
 
-    [SerializeField]
-    [HideInInspector]
-    private RotationSettings rotationSettings = null;
+    [SerializeField] [HideInInspector] private RotationSettings rotationSettings = null;
 
     // Private fields
-    private Vector3 moveVector;
+    private Vector3    moveVector;
     private Quaternion controlRotation;
+
     private CharacterController controller;
+
     // private bool isWalking;
     private bool isJogging;
+
     // private bool isSprinting;
     private float maxHorizontalSpeed; // In meters/second
     private float targetHorizontalSpeed; // In meters/second
     private float currentHorizontalSpeed; // In meters/second
     private float currentVerticalSpeed; // In meters/second
 
-    #region Unity Methods
+#region Unity Methods
 
     protected virtual void Awake()
     {
@@ -47,7 +44,7 @@ public class Character : MonoBehaviour
         this.ApplyMotion();
     }
 
-    #endregion Unity Methods
+#endregion Unity Methods
 
     public ICharacterState CurrentState { get; set; }
 
@@ -57,13 +54,13 @@ public class Character : MonoBehaviour
         set
         {
             float moveSpeed = value.magnitude * this.maxHorizontalSpeed;
-            
+
             if (moveSpeed < Mathf.Epsilon)
             {
                 this.targetHorizontalSpeed = 0f;
                 return;
             }
-            
+
             this.targetHorizontalSpeed = this.MovementSettings.JogSpeed;
 
             // else if (moveSpeed > 0.01f && moveSpeed <= this.MovementSettings.WalkSpeed)
@@ -86,7 +83,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public Camera Camera => this.camera;
+    public Camera Camera => _camera;
 
     public CharacterController Controller => this.controller;
 
@@ -131,6 +128,7 @@ public class Character : MonoBehaviour
         }
     }
 
+
     // public bool IsSprinting
     // {
     //     get
@@ -169,7 +167,8 @@ public class Character : MonoBehaviour
         if (!isGrounded)
         {
             this.currentVerticalSpeed =
-                MathfExtensions.ApplyGravity(this.VerticalSpeed, this.GravitySettings.GravityStrength, this.GravitySettings.MaxFallSpeed);
+                MathfExtensions.ApplyGravity(this.VerticalSpeed, this.GravitySettings.GravityStrength,
+                                             this.GravitySettings.MaxFallSpeed);
         }
         else
         {
@@ -200,7 +199,7 @@ public class Character : MonoBehaviour
         if (shouldAccelerate)
         {
             currentHorizontalSpeed += movementSettings.Acceleration * Time.deltaTime;
-            currentHorizontalSpeed = Mathf.Min(currentHorizontalSpeed, targetHorizontalSpeed);
+            currentHorizontalSpeed =  Mathf.Min(currentHorizontalSpeed, targetHorizontalSpeed);
         }
         else
         {
@@ -234,7 +233,8 @@ public class Character : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(moveVector, Vector3.up);
             if (this.RotationSettings.RotationSmoothing > 0f)
             {
-                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, this.RotationSettings.RotationSmoothing * Time.deltaTime);
+                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation,
+                                                           this.RotationSettings.RotationSmoothing * Time.deltaTime);
             }
             else
             {
