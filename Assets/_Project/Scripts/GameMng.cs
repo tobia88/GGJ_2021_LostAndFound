@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameStates
 {
@@ -16,13 +17,15 @@ public enum GamePhases
     Null,
     TurnStart,
     TurnProgress,
-    TurnEnd
+    TurnEnd,
+    TurnClean
 }
 
 public class GameMng : MonoBehaviour
 {
-    public float timePassCurrentTurn = 0.0f;
-    public float timeDurationPerTurn = 5.0f;
+    private CharacterRecorder _playerChar;
+    public  float             timePassCurrentTurn = 0.0f;
+    public  float             timeDurationPerTurn = 5.0f;
 
     public static GameMng Instance;
 
@@ -30,7 +33,17 @@ public class GameMng : MonoBehaviour
     public GamePhases gamePhase;
 
     public Transform startPoint;
-    public CharacterRecorder playerChar;
+
+    public CharacterRecorder PlayerChar
+    {
+        get
+        {
+            if (_playerChar == null)
+                _playerChar = FindObjectOfType<CharacterRecorder>();
+
+            return _playerChar;
+        }
+    }
 
     [Header("Manager")] public RecorderManager recorderMng;
 
@@ -47,7 +60,7 @@ public class GameMng : MonoBehaviour
     public void Reset()
     {
         timePassCurrentTurn = 0.0f;
-        playerChar.Reset();
+        PlayerChar.Reset();
     }
 
     public void SetGameState(GameStates gameState)
@@ -82,8 +95,12 @@ public class GameMng : MonoBehaviour
                 break;
             
             case GamePhases.TurnEnd:
-                recorderMng.EnqueueSnaps(playerChar.snapDatas);
+                recorderMng.EnqueueSnaps(PlayerChar.snapDatas);
                 SetGamePhase(GamePhases.TurnStart);
+                break;
+            
+            case GamePhases.TurnClean:
+                SetGameState(GameStates.GameOver);
                 break;
         }
     }
@@ -99,17 +116,11 @@ public class GameMng : MonoBehaviour
                 SetGamePhase(GamePhases.TurnEnd);
             }
         }
-    }
 
-    private void OnGUI()
-    {
-        if( !Application.isPlaying )
-            return;
-
-        float labelHeight = 25.0f;
-        float spacing = 5.0f;
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(0);
         
-        GUI.Label(new Rect(0, 0, Screen.width, labelHeight ),"Game States: " + gameState);
-        GUI.Label(new Rect(0, labelHeight + spacing, Screen.width, labelHeight ),"Time Passed: " + timePassCurrentTurn);
+        if( Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 }
