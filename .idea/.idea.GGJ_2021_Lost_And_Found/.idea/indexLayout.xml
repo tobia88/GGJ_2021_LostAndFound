@@ -25,7 +25,7 @@
       <Path>.git</Path>
       <Path>.idea</Path>
       <Path>Library</Path>
-      <Path>Temp</Path>
+      <Path>Src</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>
