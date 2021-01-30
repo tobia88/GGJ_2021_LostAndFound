@@ -33,6 +33,7 @@ public class GameMng : MonoBehaviour
     public GamePhases gamePhase;
 
     public Transform startPoint;
+    
 
     public CharacterRecorder PlayerChar
     {
