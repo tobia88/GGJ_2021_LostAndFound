@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class RecorderManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<SnapData[]> snapDatas = new List<SnapData[]>();
+    public CharacterReplayer replayerPrefab;
+
+    public static List<CharacterReplayer> replayers = new List<CharacterReplayer>(); 
+
+    public void EnqueueSnaps(List<SnapData> snaps)
     {
-        
+        snapDatas.Add(snaps.ToArray());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetupGhosts()
     {
+        CleanGhosts();
+        foreach (var snapData in snapDatas )
+        {
+            var inst = Instantiate(replayerPrefab);
+            inst.SetSnapData(snapData);
+            
+            replayers.Add(inst);
+        }
+    }
+
+    public void CleanGhosts()
+    {
+        foreach (var replayer in replayers)
+        {
+            Destroy(replayer.gameObject);
+        }
         
+        replayers.Clear();
     }
 }

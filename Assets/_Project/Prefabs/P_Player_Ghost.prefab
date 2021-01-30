@@ -1,74 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!143 &3472432225044812384
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245177566636234042}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.05
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 1.05, z: 0}
---- !u!114 &-5576693672002976145
+--- !u!114 &1068304046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245177566636234042}
+  m_GameObject: {fileID: 3180011941757011322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2f9fa4fe47ea94c9fb7ce83d43e264, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c924830177b7ce4fac83434c1df238f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  movementSettings:
-    acceleration: 2
-    decceleration: 10
-    jogSpeed: 4
-  gravitySettings:
-    gravityStrength: 27
-    maxFallSpeed: 38
-    groundedGravityForce: 9
-  rotationSettings:
-    rotationSmoothing: 8
-    orientRotationToMovement: 1
-    useControlRotation: 0
---- !u!114 &-2843265519334339351
+  currentFrameIndex: 0
+  animator: {fileID: 0}
+  damp: 0.1
+  isGrounded: 0
+--- !u!114 &9160129484832108511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245177566636234042}
+  m_GameObject: {fileID: 3180011941757011322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dda73d9ac200153488408c1b3f7cfb4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 53a3b8c51be36024489859fbfa690f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1294832975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245177566636234042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9a624acc95fc7429d8dfc1400908c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeSnapInterval: 0.05
---- !u!1001 &3322115301041311231
+--- !u!1001 &5400299137166679487
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -78,17 +38,17 @@ PrefabInstance:
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 420.10733
+      value: 419.9879
       objectReference: {fileID: 0}
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 394.481
+      value: 397.94925
       objectReference: {fileID: 0}
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
@@ -133,13 +93,13 @@ PrefabInstance:
     - target: {fileID: 7408451585984321733, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_Name
-      value: P_Player
+      value: P_Player_Ghost
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45f0fd243ba30b540b229b3c56e50916, type: 3}
---- !u!1 &5245177566636234042 stripped
+--- !u!1 &3180011941757011322 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7408451585984321733, guid: 45f0fd243ba30b540b229b3c56e50916,
     type: 3}
-  m_PrefabInstance: {fileID: 3322115301041311231}
+  m_PrefabInstance: {fileID: 5400299137166679487}
   m_PrefabAsset: {fileID: 0}

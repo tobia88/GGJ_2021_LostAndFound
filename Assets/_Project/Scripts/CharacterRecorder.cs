@@ -5,19 +5,50 @@ using UnityEngine;
 
 public class SnapData
 {
+    public float time;
     public Vector3 position;
     public Quaternion rotation;
+    public Vector3 velocity;
+    public bool isGrounded;
 }
 
 public class CharacterRecorder : MonoBehaviour
 {
-    public float timeSnapInterval = 0.5f;
+    private Coroutine _snapshotUpdate;
+    
+    public float timeSnapInterval = 0.15f;
+    public Character controller;
 
-    public Queue<SnapData> snapDatas = new Queue<SnapData>();
+    public List<SnapData> snapDatas = new List<SnapData>();
 
-    private void Start()
+    private void Awake()
     {
-        StartCoroutine(SnapperUpdate());
+        controller = GetComponent<Character>();
+    }
+
+    public void Reset()
+    {
+        if( _snapshotUpdate != null )
+            StopCoroutine(_snapshotUpdate);
+        
+        snapDatas.Clear();
+
+        controller.enabled = false;
+        
+        transform.position = GameMng.Instance.startPoint.position;
+        transform.rotation = GameMng.Instance.startPoint.rotation;
+
+        StartCoroutine(ResetPlayerController());
+        
+        TakeSnapshot();
+        
+        _snapshotUpdate = StartCoroutine(SnapperUpdate());
+    }
+
+    IEnumerator ResetPlayerController()
+    {
+        yield return 1;
+        controller.enabled = true;
     }
 
     IEnumerator SnapperUpdate()
@@ -25,7 +56,19 @@ public class CharacterRecorder : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(timeSnapInterval);
-            snapDatas.Enqueue(new SnapData(){ position = transform.position, rotation = transform.rotation});
+            TakeSnapshot();
         }
+    }
+
+    private void TakeSnapshot()
+    {
+        snapDatas.Add(new SnapData()
+        {
+            position = transform.position, 
+            rotation = transform.rotation,
+            time = GameMng.Instance.timePassCurrentTurn,
+            velocity = controller.Controller.velocity,
+            isGrounded = controller.IsGrounded
+        });
     }
 }

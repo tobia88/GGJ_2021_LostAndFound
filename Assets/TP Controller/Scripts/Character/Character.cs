@@ -53,10 +53,7 @@ public class Character : MonoBehaviour
 
     public Vector3 MoveVector
     {
-        get
-        {
-            return this.moveVector;
-        }
+        get => this.moveVector;
         set
         {
             float moveSpeed = value.magnitude * this.maxHorizontalSpeed;
@@ -89,84 +86,47 @@ public class Character : MonoBehaviour
         }
     }
 
-    public Camera Camera
-    {
-        get
-        {
-            return this.camera;
-        }
-    }
+    public Camera Camera => this.camera;
 
-    public CharacterController Controller
-    {
-        get
-        {
-            return this.controller;
-        }
-    }
+    public CharacterController Controller => this.controller;
 
     public MovementSettings MovementSettings
     {
-        get
-        {
-            return this.movementSettings;
-        }
-        set
-        {
-            this.movementSettings = value;
-        }
+        get => this.movementSettings;
+        set => this.movementSettings = value;
     }
 
     public GravitySettings GravitySettings
     {
-        get
-        {
-            return this.gravitySettings;
-        }
-        set
-        {
-            this.gravitySettings = value;
-        }
+        get => this.gravitySettings;
+        set => this.gravitySettings = value;
     }
 
     public RotationSettings RotationSettings
     {
-        get
-        {
-            return this.rotationSettings;
-        }
-        set
-        {
-            this.rotationSettings = value;
-        }
+        get => this.rotationSettings;
+        set => this.rotationSettings = value;
     }
 
     public Quaternion ControlRotation
     {
-        get
-        {
-            return this.controlRotation;
-        }
+        get => this.controlRotation;
         set
         {
-            this.controlRotation = value;
-            this.AlignRotationWithControlRotationY();
+            controlRotation = value;
+            AlignRotationWithControlRotationY();
         }
     }
 
     public bool IsJogging
     {
-        get
-        {
-            return this.isJogging;
-        }
+        get => this.isJogging;
         set
         {
             this.isJogging = value;
             if (this.isJogging)
             {
                 this.maxHorizontalSpeed = this.MovementSettings.JogSpeed;
-                // this.IsWalking = false;
             }
         }
     }
@@ -196,37 +156,13 @@ public class Character : MonoBehaviour
     //     }
     // }
 
-    public bool IsGrounded
-    {
-        get
-        {
-            return this.controller.isGrounded;
-        }
-    }
+    public bool IsGrounded => this.controller.isGrounded;
 
-    public Vector3 Velocity
-    {
-        get
-        {
-            return this.controller.velocity;
-        }
-    }
+    public Vector3 Velocity => this.controller.velocity;
 
-    public float HorizontalSpeed
-    {
-        get
-        {
-            return new Vector3(this.Velocity.x, 0f, this.Velocity.z).magnitude;
-        }
-    }
+    public float HorizontalSpeed => new Vector3(this.Velocity.x, 0f, this.Velocity.z).magnitude;
 
-    public float VerticalSpeed
-    {
-        get
-        {
-            return this.Velocity.y;
-        }
-    }
+    public float VerticalSpeed => this.Velocity.y;
 
     public void ApplyGravity(bool isGrounded = false)
     {

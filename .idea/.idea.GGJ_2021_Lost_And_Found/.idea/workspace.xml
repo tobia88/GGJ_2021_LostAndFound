@@ -4,7 +4,12 @@
     <list default="true" id="9238f364-fb76-42c6-84e5-b26d62a79a0a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2021_Lost_And_Found/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2021_Lost_And_Found/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2021_Lost_And_Found/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2021_Lost_And_Found/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TP Controller/Scripts/Character/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TP Controller/Scripts/Character/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/P_Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/P_Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/Scn_Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/Scn_Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/CharacterRecorder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/CharacterRecorder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/RecorderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/RecorderManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +20,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/CharacterReplayerAnimator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FAA55637-FCC1-4BBF-B146-E6835A4641D9/04/2d1237c9/CharacterController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/CharacterRecorder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TP Controller/Scripts/PlayerInput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GameMng.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -40,9 +47,13 @@
       <option value="$PROJECT_DIR$/Assets/TP Controller/Scripts/PlayerInput.cs" />
       <option value="$PROJECT_DIR$/Assets/TP Controller/Scripts/Character/States/GroundedCharacterState.cs" />
       <option value="$PROJECT_DIR$/Assets/TP Controller/Scripts/Character/Settings/MovementSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/TP Controller/Scripts/Character/Character.cs" />
       <option value="$PROJECT_DIR$/Assets/TP Controller/Scripts/Camera/CameraOcclusionProtector.cs" />
+      <option value="$PROJECT_DIR$/Assets/_Project/Scripts/RecorderManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/_Project/Scripts/GameMng.cs" />
       <option value="$PROJECT_DIR$/Assets/_Project/Scripts/CharacterRecorder.cs" />
+      <option value="$PROJECT_DIR$/Assets/_Project/Scripts/CharacterReplayerAnimator.cs" />
+      <option value="$PROJECT_DIR$/Assets/TP Controller/Scripts/Character/Character.cs" />
+      <option value="$PROJECT_DIR$/Assets/_Project/Scripts/CharacterReplayer.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1nm3Oqfjo4fgESL7fZdkI8VxFp8" />
@@ -52,6 +63,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -93,7 +105,7 @@
       <updated>1611981411658</updated>
       <workItem from="1611981417297" duration="2497000" />
       <workItem from="1611986807521" duration="833000" />
-      <workItem from="1611987705246" duration="3308000" />
+      <workItem from="1611987705246" duration="9937000" />
     </task>
     <servers />
   </component>
