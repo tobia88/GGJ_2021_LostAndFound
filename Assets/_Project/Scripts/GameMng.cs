@@ -60,6 +60,7 @@ public class GameMng : MonoBehaviour
     public void Reset()
     {
         timePassCurrentTurn = 0.0f;
+        FootprintStamper.ClearAll();
         PlayerChar.Reset();
     }
 
