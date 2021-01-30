@@ -55,13 +55,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9207297457685464138}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 0, y: 0, z: -0.35}
+  m_LocalRotation: {x: 0, y: 0.70710677, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0.019800842, z: -0.3500061}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9207297457004709465}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 180, z: 0}
 --- !u!114 &9207297457685464137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,9 +78,9 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: 59e641d14cb7bf04e91526fceea76dad, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 1
-  m_UVScale: {x: 0.5, y: 1}
+  m_UVScale: {x: 0.44, y: 1}
   m_UVBias: {x: -0.05, y: 0}
   m_AffectsTransparency: 0
-  m_Offset: {x: 0, y: 0, z: 0.39167786}
-  m_Size: {x: 0.39, y: 0.27, z: 0.1}
+  m_Offset: {x: 0, y: 0, z: 0.06462681}
+  m_Size: {x: 0.5, y: 0.5, z: 0.12925363}
   m_FadeFactor: 1
