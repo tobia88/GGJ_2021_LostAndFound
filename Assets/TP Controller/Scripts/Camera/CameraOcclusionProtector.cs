@@ -112,6 +112,7 @@ public class CameraOcclusionProtector : MonoBehaviour
 
         if (Physics.SphereCast(ray, this.sphereCastRadius, out hit, rayLength, ~this.ignoreLayerMask))
         {
+            Debug.Log($"Hit Object{ hit.collider.name}");
             outDistanceToTarget = hit.distance + this.sphereCastRadius;
             return true;
         }
@@ -140,7 +141,7 @@ public class CameraOcclusionProtector : MonoBehaviour
         
         Ray ray = new Ray(this.pivot.transform.position, -this.transform.forward);
         float rayLength = this.distanceToTarget - this.camera.nearClipPlane;
-        RaycastHit[] hits = Physics.RaycastAll(ray, rayLength, seeThroughLayerMask);
+        RaycastHit[] hits = Physics.SphereCastAll(ray, 0.5f, rayLength, seeThroughLayerMask);
         var hitList = new List<GameObject>();
 
         if (hits.Length > 0)
@@ -178,8 +179,6 @@ public class CameraOcclusionProtector : MonoBehaviour
     private void AddFadeoutObject(GameObject obj)
     {
         seeThroughObjects.Add(obj);
-
-        Debug.Log("Fadeout Obj: " + obj.name);
 
         var fadeout = obj.GetComponent<CameraOcclusionFadeOut>();
         fadeout.SetFadeout(true);

@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CameraOcclusionFadeOut : MonoBehaviour
 {
     private Material _oriMat;
     private MeshRenderer _renderer;
+
+    private Camera _camera;
 
     public Material fadeoutMat;
 
@@ -37,6 +40,9 @@ public class CameraOcclusionFadeOut : MonoBehaviour
 
     private void Update()
     {
+        if (_camera == null)
+            _camera = Camera.main;
+
         currentAlpha = Mathf.MoveTowards(currentAlpha, targetAlpha, fadingSpeed * Time.deltaTime);
         
         if (Mathf.Abs(currentAlpha - targetAlpha) <= float.Epsilon)
