@@ -14,7 +14,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.2
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.05, z: 0}
@@ -234,7 +234,7 @@ PrefabInstance:
     - target: {fileID: 2925548231252558144, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_VolumetricDimmer
-      value: 1.36
+      value: 6.3
       objectReference: {fileID: 0}
     - target: {fileID: 2925548231252558144, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
@@ -979,7 +979,7 @@ PrefabInstance:
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 401.0306
+      value: 401.14
       objectReference: {fileID: 0}
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
@@ -989,7 +989,7 @@ PrefabInstance:
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 396.18033
+      value: 395.94
       objectReference: {fileID: 0}
     - target: {fileID: 7408451585984137647, guid: 45f0fd243ba30b540b229b3c56e50916,
         type: 3}
