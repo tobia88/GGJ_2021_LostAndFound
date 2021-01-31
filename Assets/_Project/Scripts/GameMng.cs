@@ -111,7 +111,8 @@ public class GameMng : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(ScreenTransition());
+                    // StartCoroutine(ScreenTransition());
+                    SetGameState(GameStates.GameStart);
                 }
 
                 break;
