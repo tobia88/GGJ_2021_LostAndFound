@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &573707295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 573707296}
+  m_Layer: 0
+  m_Name: PlayerStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &573707296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573707295}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4599609, y: 0, z: -46.73999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8327364332344717576}
+  m_RootOrder: 98
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8327364330524145863
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8327364332344717576}
+  - component: {fileID: 419465386}
   m_Layer: 0
   m_Name: P_Level1
   m_TagString: Untagged
@@ -622,9 +653,24 @@ Transform:
   - {fileID: 8352635648134025040}
   - {fileID: 8352635648439917466}
   - {fileID: 4639417703131991358}
+  - {fileID: 573707296}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &419465386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327364332344717583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a46d2eda7dfc154fa21ab582728ae0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {fileID: 573707296}
+  timeDurationPerTurn: 1e+11
 --- !u!1001 &8327364330473003455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4165,7 +4211,7 @@ PrefabInstance:
     - target: {fileID: 34401946820451945, guid: 7f42fb968a96f6344bc7ed5c6d4cd19b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.89
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 34401946820451945, guid: 7f42fb968a96f6344bc7ed5c6d4cd19b,
         type: 3}
@@ -4175,7 +4221,7 @@ PrefabInstance:
     - target: {fileID: 34401946820451945, guid: 7f42fb968a96f6344bc7ed5c6d4cd19b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.01
+      value: -24.9
       objectReference: {fileID: 0}
     - target: {fileID: 34401946820451945, guid: 7f42fb968a96f6344bc7ed5c6d4cd19b,
         type: 3}
