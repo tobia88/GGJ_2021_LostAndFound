@@ -47,7 +47,9 @@ public class MoonClock : MonoBehaviour
         if( GameMng.Instance == null )
             return;
 
-        float percentage = 1.0f - Mathf.Clamp01(GameMng.Instance.timePassCurrentTurn / 60.0f);
+        float maxPercentage = GameMng.Instance.timeDurationPerTurn / 60.0f;
+        float percentage = GameMng.Instance.timePassCurrentTurn / GameMng.Instance.timeDurationPerTurn;
+        percentage = (1.0f - percentage) * maxPercentage;
 
 
         if (byScale)
