@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MoonClock : MonoBehaviour
 {
+    private MeshRenderer _bgRender;
     public Transform hand;
     [Range(0.0f, 1.0f)]
     public float damp = 0.5f;
@@ -13,6 +14,17 @@ public class MoonClock : MonoBehaviour
 
     public bool byScale = false;
 
+    public MeshRenderer bgRender
+    {
+        get
+        {
+            if (_bgRender == null)
+                _bgRender = GetComponent<MeshRenderer>();
+            
+            return _bgRender;
+        }
+    }
+    
     [SerializeField]
     private int _curRotationInt;
     private Quaternion _targetRotation;
