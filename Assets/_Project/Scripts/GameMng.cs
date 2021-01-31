@@ -168,6 +168,20 @@ public class GameMng : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
+
+        if (Input.GetKey(KeyCode.Z) && Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SetGamePhase(GamePhases.TurnClean);
+        }
+        
+        if (Input.GetKey(KeyCode.Z) && Input.GetKey(KeyCode.Alpha1))
+        {
+            Time.timeScale = 5.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
     }
 
     IEnumerator ScreenTransition()
