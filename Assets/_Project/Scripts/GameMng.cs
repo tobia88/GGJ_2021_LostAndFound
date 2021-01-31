@@ -25,8 +25,10 @@ public enum GamePhases
 public class GameMng : MonoBehaviour
 {
     private CharacterRecorder _playerChar;
-    public  float             timePassCurrentTurn = 0.0f;
-    public  float             timeDurationPerTurn = 5.0f;
+    public float timePassCurrentTurn = 0.0f;
+    public float timeDurationPerTurn = 5.0f;
+
+    public float TimeLeft => Mathf.Clamp(timeDurationPerTurn - timePassCurrentTurn, 0.0f, timeDurationPerTurn);
 
     public static GameMng Instance;
 
@@ -70,23 +72,23 @@ public class GameMng : MonoBehaviour
 
     public void SetGameState(GameStates gameState)
     {
-        if( this.gameState == gameState )
+        if (this.gameState == gameState)
             return;
 
         this.gameState = gameState;
-        
-        Debug.Log($"GameMng::Game State::{gameState}" );
-        
+
+        Debug.Log($"GameMng::Game State::{gameState}");
+
         switch (gameState)
         {
             case GameStates.GameStart:
                 SetGamePhase(GamePhases.TurnStart);
                 SetGameState(GameStates.GamePlaying);
                 break;
-            
+
             case GameStates.NextLevel:
                 levelIndex++;
-                
+
                 if (levelIndex >= startPoints.Length)
                 {
                     SetGameState(GameStates.GameOver);
@@ -97,7 +99,7 @@ public class GameMng : MonoBehaviour
                 }
 
                 break;
-            
+
             case GameStates.GameOver:
                 PlayerChar.DisableControl();
                 break;
@@ -106,12 +108,12 @@ public class GameMng : MonoBehaviour
 
     public void SetGamePhase(GamePhases gamePhase)
     {
-        if( this.gamePhase == gamePhase )
+        if (this.gamePhase == gamePhase)
             return;
 
         this.gamePhase = gamePhase;
 
-        Debug.Log($"GameMng::Game Phase::{gamePhase}" );
+        Debug.Log($"GameMng::Game Phase::{gamePhase}");
 
         switch (gamePhase)
         {
@@ -120,12 +122,12 @@ public class GameMng : MonoBehaviour
                 recorderMng.SetupGhosts();
                 SetGamePhase(GamePhases.TurnProgress);
                 break;
-            
+
             case GamePhases.TurnEnd:
                 recorderMng.EnqueueSnaps(PlayerChar.snapDatas);
                 SetGamePhase(GamePhases.TurnStart);
                 break;
-            
+
             case GamePhases.TurnClean:
                 SetGameState(GameStates.NextLevel);
                 break;
@@ -146,8 +148,8 @@ public class GameMng : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(0);
-        
-        if( Input.GetKeyDown(KeyCode.Escape))
+
+        if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
     }
 }
