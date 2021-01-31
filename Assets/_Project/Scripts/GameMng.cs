@@ -22,6 +22,7 @@ public enum GamePhases
     TurnClean
 }
 
+
 public class GameMng : MonoBehaviour
 {
     private CharacterRecorder _playerChar;
@@ -35,10 +36,12 @@ public class GameMng : MonoBehaviour
     public GameStates gameState;
     public GamePhases gamePhase;
 
-    public Transform startPoint => startPoints[levelIndex];
+    public Transform startPoint => levels[levelIndex].startPoint;
 
-    public Transform[] startPoints;
+    public GameLevel[] levels;
     public int levelIndex;
+
+    [Header("UI")] public GameObject creditAnim;
 
     public CharacterRecorder PlayerChar
     {
@@ -56,10 +59,17 @@ public class GameMng : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
+        creditAnim.SetActive(false);
     }
 
     private void Start()
     {
+        foreach (var level in levels)
+        {
+            level.gameObject.SetActive(false);
+        }
+        
         SetGameState(GameStates.GameStart);
     }
 
@@ -82,25 +92,32 @@ public class GameMng : MonoBehaviour
         switch (gameState)
         {
             case GameStates.GameStart:
+                
+                levels[levelIndex].gameObject.SetActive(true);
+                timeDurationPerTurn = levels[levelIndex].timeDurationPerTurn;
+                
                 SetGamePhase(GamePhases.TurnStart);
                 SetGameState(GameStates.GamePlaying);
                 break;
 
             case GameStates.NextLevel:
+                levels[levelIndex].gameObject.SetActive(false);
+                
                 levelIndex++;
 
-                if (levelIndex >= startPoints.Length)
+                if (levelIndex >= levels.Length)
                 {
                     SetGameState(GameStates.GameOver);
                 }
                 else
                 {
-                    SetGameState(GameStates.GameStart);
+                    StartCoroutine(ScreenTransition());
                 }
 
                 break;
 
             case GameStates.GameOver:
+                creditAnim.SetActive(true);
                 PlayerChar.DisableControl();
                 break;
         }
@@ -151,5 +168,10 @@ public class GameMng : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
+    }
+
+    IEnumerator ScreenTransition()
+    {
+        yield return new WaitForSeconds(2.0f);
     }
 }
