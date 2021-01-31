@@ -297,7 +297,7 @@ MonoBehaviour:
   gamePhase: 0
   directorManager: {fileID: 1706367666}
   levels:
-  - {fileID: 419465386}
+  - {fileID: 419465387}
   - {fileID: 386295797}
   - {fileID: 526333540}
   levelIndex: 0
@@ -336,6 +336,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 573707296, guid: 39626fe877f121948b18c6cf1ab6493d, type: 3}
+      propertyPath: m_RootOrder
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 8327364332344717576, guid: 39626fe877f121948b18c6cf1ab6493d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -435,26 +439,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 460140486}
   timeDurationPerTurn: 30
---- !u!1 &419465385 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8327364332344717583, guid: 39626fe877f121948b18c6cf1ab6493d,
+--- !u!114 &419465387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 419465386, guid: 39626fe877f121948b18c6cf1ab6493d,
     type: 3}
   m_PrefabInstance: {fileID: 361011827}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &419465386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419465385}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a46d2eda7dfc154fa21ab582728ae0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 573707296}
-  timeDurationPerTurn: 1e+11
 --- !u!1 &460140485
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +479,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 386295796}
-  m_RootOrder: 315
+  m_RootOrder: 433
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &516369106 stripped
 MonoBehaviour:
@@ -1048,18 +1044,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016377910}
   m_CullTransparentMesh: 0
---- !u!114 &1060264303 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8736713570682318375, guid: 2baa61a39f8fb6548a1e2cb64d644b26,
-    type: 3}
-  m_PrefabInstance: {fileID: 2025136811}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 826b0aa84e9c91d4aab69fc9f3982032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1280999478 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7637733026927851302, guid: 2baa61a39f8fb6548a1e2cb64d644b26,
@@ -1553,6 +1537,7 @@ GameObject:
   - component: {fileID: 1706367664}
   - component: {fileID: 1706367663}
   - component: {fileID: 1706367666}
+  - component: {fileID: 1706367667}
   m_Layer: 0
   m_Name: TimelineDirector
   m_TagString: Untagged
@@ -1588,7 +1573,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1706367662}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 0259da470aa5a404f9740f061729568b, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: b23fba24b4ba7ce4b9b9771be5092d39, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1606,6 +1591,10 @@ PlayableDirector:
     value: {fileID: 813533230}
   - key: {fileID: 2529894524486844264, guid: 0259da470aa5a404f9740f061729568b, type: 2}
     value: {fileID: 813533226}
+  - key: {fileID: 7476504512404699211, guid: 0259da470aa5a404f9740f061729568b, type: 2}
+    value: {fileID: 1706367667}
+  - key: {fileID: 960293995677241484, guid: b23fba24b4ba7ce4b9b9771be5092d39, type: 2}
+    value: {fileID: 1706367667}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1706367665
@@ -1636,6 +1625,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewindTransition: {fileID: 11400000, guid: b23fba24b4ba7ce4b9b9771be5092d39, type: 2}
   winTransition: {fileID: 11400000, guid: 0259da470aa5a404f9740f061729568b, type: 2}
+--- !u!82 &1706367667
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706367662}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1718302693
 GameObject:
   m_ObjectHideFlags: 1
@@ -2059,7 +2144,7 @@ MonoBehaviour:
   - {fileID: 23092191}
   - {fileID: 516369106}
   - {fileID: 1280999478}
-  - {fileID: 1060264303}
+  - {fileID: 0}
   - {fileID: 1894870250}
   - {fileID: 5496329}
   - {fileID: 131689669}

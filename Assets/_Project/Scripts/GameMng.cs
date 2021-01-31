@@ -60,6 +60,9 @@ public class GameMng : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         
         creditAnim.SetActive(false);
     }
