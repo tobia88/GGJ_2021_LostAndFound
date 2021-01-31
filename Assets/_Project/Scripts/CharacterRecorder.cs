@@ -71,4 +71,8 @@ public class CharacterRecorder : MonoBehaviour
             isGrounded = controller.IsGrounded
         });
     }
+
+    public void DisableControl()
+    {
+    }
 }
