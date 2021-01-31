@@ -9,6 +9,7 @@ public enum GameStates
     Null,
     GameStart,
     GamePlaying,
+    NextLevel,
     GameOver
 }
 
@@ -32,7 +33,10 @@ public class GameMng : MonoBehaviour
     public GameStates gameState;
     public GamePhases gamePhase;
 
-    public Transform startPoint;
+    public Transform startPoint => startPoints[levelIndex];
+
+    public Transform[] startPoints;
+    public int levelIndex;
 
     public CharacterRecorder PlayerChar
     {
@@ -71,11 +75,31 @@ public class GameMng : MonoBehaviour
 
         this.gameState = gameState;
         
+        Debug.Log($"GameMng::Game State::{gameState}" );
+        
         switch (gameState)
         {
             case GameStates.GameStart:
                 SetGamePhase(GamePhases.TurnStart);
                 SetGameState(GameStates.GamePlaying);
+                break;
+            
+            case GameStates.NextLevel:
+                levelIndex++;
+                
+                if (levelIndex >= startPoints.Length)
+                {
+                    SetGameState(GameStates.GameOver);
+                }
+                else
+                {
+                    SetGameState(GameStates.GameStart);
+                }
+
+                break;
+            
+            case GameStates.GameOver:
+                PlayerChar.DisableControl();
                 break;
         }
     }
@@ -86,6 +110,8 @@ public class GameMng : MonoBehaviour
             return;
 
         this.gamePhase = gamePhase;
+
+        Debug.Log($"GameMng::Game Phase::{gamePhase}" );
 
         switch (gamePhase)
         {
@@ -101,7 +127,7 @@ public class GameMng : MonoBehaviour
                 break;
             
             case GamePhases.TurnClean:
-                SetGameState(GameStates.GameOver);
+                SetGameState(GameStates.NextLevel);
                 break;
         }
     }

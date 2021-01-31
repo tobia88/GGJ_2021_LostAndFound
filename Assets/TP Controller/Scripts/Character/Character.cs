@@ -128,32 +128,6 @@ public class Character : MonoBehaviour
         }
     }
 
-
-    // public bool IsSprinting
-    // {
-    //     get
-    //     {
-    //         return this.isSprinting;
-    //     }
-    //     set
-    //     {
-    //         this.isSprinting = value;
-    //         if (this.isSprinting)
-    //         {
-    //             this.maxHorizontalSpeed = this.MovementSettings.SprintSpeed;
-    //             this.IsWalking = false;
-    //             this.IsJogging = false;
-    //         }
-    //         else
-    //         {
-    //             if (!(this.IsWalking || this.IsJogging))
-    //             {
-    //                 this.IsJogging = true;
-    //             }
-    //         }
-    //     }
-    // }
-
     public bool IsGrounded => this.controller.isGrounded;
 
     public Vector3 Velocity => this.controller.velocity;
