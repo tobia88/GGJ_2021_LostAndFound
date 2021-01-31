@@ -1397,6 +1397,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Door2Win
       objectReference: {fileID: 0}
+    - target: {fileID: 4546732271042162099, guid: f3b577c1337661947a9b32197e49f428,
+        type: 3}
+      propertyPath: m_Range
+      value: 9.439998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853915860291684646, guid: f3b577c1337661947a9b32197e49f428,
+        type: 3}
+      propertyPath: m_VolumetricDimmer
+      value: 0.29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b577c1337661947a9b32197e49f428, type: 3}
 --- !u!4 &4639417703131991358 stripped
