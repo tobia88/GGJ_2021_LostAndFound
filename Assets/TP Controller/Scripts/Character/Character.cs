@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
     // private bool isWalking;
     private bool isJogging;
 
-    // private bool isSprinting;
+    // 
     private float maxHorizontalSpeed; // In meters/second
     private float targetHorizontalSpeed; // In meters/second
     private float currentHorizontalSpeed; // In meters/second
