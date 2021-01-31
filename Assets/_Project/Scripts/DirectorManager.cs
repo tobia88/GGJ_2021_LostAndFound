@@ -10,7 +10,8 @@ public class DirectorManager : MonoBehaviour
     private PlayableDirector _director;
     
     public PlayableAsset rewindTransition;
-    
+    public PlayableAsset winTransition;
+
     private bool _isPlaying;
 
     private void Awake()
@@ -32,6 +33,11 @@ public class DirectorManager : MonoBehaviour
             // _isPlaying = true;
             // StartCoroutine(TimelineUpdate());
         }
+    }
+
+    public void PlayWinTransition()
+    {
+        _director.Play(winTransition);
     }
 
     IEnumerator TimelineUpdate()

@@ -295,6 +295,7 @@ MonoBehaviour:
   timeDurationPerTurn: 30
   gameState: 0
   gamePhase: 0
+  directorManager: {fileID: 1706367666}
   levels:
   - {fileID: 419465386}
   - {fileID: 386295797}
@@ -632,6 +633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_UI_GameClearCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901430941520016054, guid: f3c6cddeb472ee34e91024e6f1cf4190,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3901430940415384559, guid: f3c6cddeb472ee34e91024e6f1cf4190, type: 3}
@@ -1582,7 +1588,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1706367662}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: b23fba24b4ba7ce4b9b9771be5092d39, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 0259da470aa5a404f9740f061729568b, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1596,6 +1602,10 @@ PlayableDirector:
     value: {fileID: 1971618953}
   - key: {fileID: -503432429830980275, guid: b23fba24b4ba7ce4b9b9771be5092d39, type: 2}
     value: {fileID: 813533226}
+  - key: {fileID: -5413097795852175988, guid: 0259da470aa5a404f9740f061729568b, type: 2}
+    value: {fileID: 813533230}
+  - key: {fileID: 2529894524486844264, guid: 0259da470aa5a404f9740f061729568b, type: 2}
+    value: {fileID: 813533226}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1706367665
@@ -1605,8 +1615,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706367662}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 706.2142, y: 208.0781, z: 1159.3949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1625,6 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewindTransition: {fileID: 11400000, guid: b23fba24b4ba7ce4b9b9771be5092d39, type: 2}
+  winTransition: {fileID: 11400000, guid: 0259da470aa5a404f9740f061729568b, type: 2}
 --- !u!1 &1718302693
 GameObject:
   m_ObjectHideFlags: 1

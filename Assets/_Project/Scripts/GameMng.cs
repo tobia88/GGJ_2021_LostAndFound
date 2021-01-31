@@ -37,6 +37,7 @@ public class GameMng : MonoBehaviour
     public GamePhases gamePhase;
 
     public Transform startPoint => levels[levelIndex].startPoint;
+    public DirectorManager directorManager;
 
     public GameLevel[] levels;
     public int levelIndex;
@@ -101,7 +102,6 @@ public class GameMng : MonoBehaviour
                 break;
 
             case GameStates.NextLevel:
-                levels[levelIndex].gameObject.SetActive(false);
                 
                 levelIndex++;
 
@@ -111,8 +111,7 @@ public class GameMng : MonoBehaviour
                 }
                 else
                 {
-                    // StartCoroutine(ScreenTransition());
-                    SetGameState(GameStates.GameStart);
+                    StartCoroutine(ScreenTransition());
                 }
 
                 break;
@@ -173,6 +172,9 @@ public class GameMng : MonoBehaviour
 
     IEnumerator ScreenTransition()
     {
-        yield return new WaitForSeconds(2.0f);
+        directorManager.PlayWinTransition();
+        yield return new WaitForSeconds(4.0f);
+        levels[levelIndex - 1].gameObject.SetActive(false);
+        SetGameState(GameStates.GameStart);
     }
 }
